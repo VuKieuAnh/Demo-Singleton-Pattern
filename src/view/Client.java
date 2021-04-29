@@ -10,22 +10,42 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Client {
-    public static void main(String[] args) {
-        List<Student> c0221i1 = null;
+
+    int id;
+
+    public Client(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    public boolean equals(Client obj) {
+        return id == obj.id;
+    }
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        List<Student> c0221i1 = new ArrayList<>();
         try {
-            c0221i1 = FileManager.readFile();
+            FileManager fileManager = FileManager.getINSTANCE("A");
+            c0221i1 = fileManager.readFile();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        StudentManager ka = new StudentManager("Kieu Anh xinh", c0221i1);
-        Student s = newStudent();
-        try {
-            ka.addNewStudent(s);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        StudentManager ka = new StudentManager("Kieu Anh xinh", c0221i1);
+//        Student s = newStudent();
+//        try {
+//            ka.addNewStudent(s);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+
+        c0221i1 = FileManager.getINSTANCE("Kieu Anh").readFile();
     }
     public static Student newStudent(){
         Scanner scanner = new Scanner(System.in);

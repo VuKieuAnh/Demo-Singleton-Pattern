@@ -13,12 +13,16 @@ public class StudentManager {
 
     public void addNewStudent(Student student) throws IOException {
         studentList.add(student);
-        FileManager.writeFile(studentList);
+        FileManager fileManager =FileManager.getINSTANCE("Kieu Anh");
+        fileManager.writeFile(studentList);
+//        FileManager.writeFile(studentList);
     }
 
     public boolean editStudent(int index, Student student) throws IOException {
         studentList.set(index, student);
-        FileManager.writeFile(studentList);
+//        FileManager fileManager = FileManager.getINSTANCE();
+//        fileManager.writeFile(studentList);
+//        FileManager.writeFile(studentList);
         return true;
     }
 
